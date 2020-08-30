@@ -1,0 +1,566 @@
+.dtl_title_btn a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 33px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    font-size: 12px;
+}
+
+a:visited {
+    text-decoration: none
+}
+
+a:link {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+.video_title a:link {
+    color: #000000;
+    text-decoration: none
+}
+
+.video_title a:visited {
+    color: #000000;
+    text-decoration: none
+}
+
+.dtl_title_btn a:link {
+    color: #000000;
+    text-decoration: none
+}
+
+.dtl_title_btn a:visited {
+    color: #000000;
+    text-decoration: none
+}
+
+.dtl_title_btn a:hover {
+    color: #0451DB;
+    text-decoration: none
+}
+
+.outside a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    font-size: 12px;
+}
+
+.outside a:link {
+    color: #000000;
+    text-decoration: none
+}
+
+.outside a:visited {
+    color: #000000;
+    text-decoration: none
+}
+
+.outside a:hover {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#tree_link {
+    font-size: 12px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: #000000;
+}
+
+#tree_link a:link {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#tree_link a:visited {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#tree_link a:hover {
+    color: #0451DB;
+    text-decoration: underline
+}
+
+p {
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+    font-size: 12pt;
+    color: #000000
+}
+
+.p1 {
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+    font-size: 18pt;
+    font-weight: bold;
+    color: #0F23AC
+}
+
+.p1small {
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+    font-size: 12pt;
+    font-weight: bold;
+    color: #0F23AC
+}
+
+.p2 {
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+    font-size: 16pt;
+    font-weight: bold;
+    color: #008080
+}
+
+.p3 {
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+    font-size: 14pt;
+    font-weight: bold;
+    color: #336699;
+    font-style: italic
+}
+
+.p4 {
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+    font-size: 12pt;
+    font-style: italic;
+    font-weight: bold;
+    color: #62867D
+}
+
+#dtl_content {
+    font-size: 14px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial, "Helvetica", "sans-serif";
+}
+
+.table_normal {
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    border-collapse: collapse;
+}
+
+.td_normal {
+    border-width: 2px;
+    padding: 1px;
+    border-style: solid;
+    border-color: white;
+    background-color: #cdcdcd;
+    vertical-align: text-top;
+}
+
+.td_normal_item_0 {
+    border-width: 2px;
+    padding: 1px;
+    border-style: solid;
+    border-color: white;
+    background-color: white;
+    vertical-align: text-top;
+}
+
+.td_normal_item_1 {
+    border-width: 2px;
+    padding: 1px;
+    border-style: solid;
+    border-color: white;
+    background-color: #CFEBFD;
+    vertical-align: text-top;
+}
+
+#td_normal_item_0 a:link {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#td_normal_item_0 a:visited {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#td_normal_item_0 a:hover {
+    color: #0451DB;
+    text-decoration: underline
+}
+
+#td_normal_item_1 a:link {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#td_normal_item_1 a:visited {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#td_normal_item_1 a:hover {
+    color: #0451DB;
+    text-decoration: underline
+}
+
+#table_normal_text {
+    font-size: 14px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: #000000;
+}
+
+#common_product_link {
+    font-size: 12px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: #999999;
+    padding: 10px;
+}
+
+common_product_link a:link {
+    text-decoration: none
+}
+
+common_product_link a:visited {
+    text-decoration: none
+}
+
+common_product_link a:hover {
+    text-decoration: underline
+}
+
+#table_area {
+    font-size: 16px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: red;
+}
+
+#table_area a:link {
+    color: red;
+    text-decoration: none
+}
+
+#table_area a:visited {
+    color: red;
+    text-decoration: none
+}
+
+#table_area a:hover {
+    color: red;
+    text-decoration: underline
+}
+
+#normal_small_text {
+    font-size: 12px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: #000000;
+}
+
+#normal_bold_text {
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: #000000;
+}
+
+#normal_bold_text a:link {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#normal_bold_text a:visited {
+    color: #0451DB;
+    text-decoration: none
+}
+
+#normal_bold_text a:hover {
+    color: #0451DB;
+    text-decoration: underline
+}
+
+#normal_text {
+    font-size: 14px;
+    font-family: "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    color: #000000;
+}
+
+.schar {
+    font-size: 16px;
+    color: #666666;
+}
+
+.txtlab {
+    font-size: 14px;
+    text-align: right;
+}
+
+.infield {
+    width: 320;
+    font-size: 20px;
+}
+
+.arrowgreen {
+    width: 155px;
+    /*width of menu*/
+    border-style: solid solid none solid;
+    border-color: #94AA74;
+    border-size: 1px;
+    border-width: 1px;
+}
+
+.arrowgreen ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.arrowgreen li a {
+    font: 14px "Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+    display: block;
+    background: transparent url(../images/arrowgreen.gif) 100% 0;
+    height: 24px;
+    /*Set to height of bg image- padding within link (ie: 32px - 4px - 4px)*/
+    padding: 4px 0 4px 10px;
+    line-height: 24px;
+    /*Set line-height of bg image- padding within link (ie: 32px - 4px - 4px)*/
+    text-decoration: none;
+}
+
+.arrowgreen li a:link,
+.arrowgreen li a:visited {
+    color: #555555;
+}
+
+.arrowgreen li a:hover {
+    color: #000000;
+    background-position: 100% -32px;
+}
+
+.arrowgreen li a.selected {
+    color: #000000;
+    background-position: 100% -64px;
+}
+
+.horizonalul ul {
+    overflow: auto;
+    list-style-type: none;
+}
+
+.horizonalul li {
+    height: 12px;
+    float: left;
+    margin-right: 0px;
+    border-right: 1px solid #aaa;
+    padding: 0 5px;
+}
+
+.horizonalul li:last-child {
+    border-right: none;
+}
+
+.button {
+    display: inline-block;
+    font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    padding: .8em 1.4em;
+    padding-right: 4.7em;
+    background: #009ED8;
+    border: none;
+    color: white;
+    transition: .2s;
+}
+
+.button:before,
+.button:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    width: 2.8em;
+    content: "\00a0";
+    font-family: 'FontAwesome', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    transition: .2s;
+    transform-origin: 50% 60%;
+}
+
+.button:before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background: #0079a5;
+}
+
+.button:active,
+.button:focus {
+    background: #002e3f;
+    outline: none;
+}
+
+.button {
+    min-width: 15em;
+}
+
+.arrow {
+    /* background: #FE5F55; */
+}
+
+.arrow:hover {
+    /* background: #fe2f22; */
+}
+
+.arrow:active,
+.arrow:focus {
+    /* background: #b90c01; */
+}
+
+.arrow:after {
+    content: "\F054";
+}
+
+.arrow:hover:after {
+    -webkit-animation: bounceright .3s alternate ease infinite;
+    animation: bounceright .3s alternate ease infinite;
+}
+
+.arrow2 {
+    background: #139675;
+}
+
+.arrow2:hover {
+    background: #0d6952;
+}
+
+.arrow2:active,
+.arrow2:focus {
+    background: #083b2e;
+}
+
+.arrow2:after {
+    content: "\F054";
+}
+
+.arrow2:hover:after {
+    -webkit-animation: bounceright .3s alternate ease infinite;
+    animation: bounceright .3s alternate ease infinite;
+}
+
+.arrow3 {
+    background: #d63105;
+}
+
+.arrow3:hover {
+    background: #8d3016;
+}
+
+.arrow3:active,
+.arrow3:focus {
+    background: #8d3016;
+}
+
+.arrow3:after {
+    content: "\F054";
+}
+
+.arrow3:hover:after {
+    -webkit-animation: bounceright .3s alternate ease infinite;
+    animation: bounceright .3s alternate ease infinite;
+}
+
+.phone {
+    background: #139675;
+}
+
+.phone:hover {
+    background: #0d6952;
+}
+
+.phone:active,
+.phone:focus {
+    background: #083b2e;
+}
+
+.phone:after {
+    content: "\F095";
+}
+
+.phone:hover:after {
+    -webkit-animation: wiggle .05s alternate ease infinite;
+    animation: wiggle .05s alternate ease infinite;
+}
+
+.email {
+    background: #C673B3;
+}
+
+.email:hover {
+    background: #b74f9f;
+}
+
+.email:active,
+.email:focus {
+    background: #963d82;
+}
+
+.email:after {
+    content: "\F0E0";
+}
+
+.email:hover:after {
+    -webkit-animation: none;
+    -webkit-transform: skew(-20deg);
+    animation: none;
+    transform: skew(-20deg);
+    text-indent: .1em;
+}
+
+.search:after {
+    content: "\f002";
+}
+
+.search:hover:after {
+    -webkit-animation: none;
+    -webkit-transform: scale(1.4);
+    animation: none;
+    transform: scale(1.4);
+}
+
+@-webkit-keyframes bounceright {
+    from {
+        -webkit-transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(3px);
+    }
+}
+
+@-webkit-keyframes wiggle {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(30deg);
+    }
+}
+
+@keyframes bounceright {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes wiggle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(30deg);
+    }
+}

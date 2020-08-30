@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-hk">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Useful Tool</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="icon" sizes="any" mask href="images/Q9w10.png">
+    <link href="css/tpl3content.css" rel="stylesheet" type="text/css">
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/lightbox-2.6.min.js"></script>
+    <link href="css/lightbox.css" rel="stylesheet" />
+
+    <link href="css/google-font.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+    <link href="css/headerFooter.css" rel="stylesheet" type="text/css">
+    <link href="css/menu.css" rel="stylesheet" type="text/css">
+
+    <script>
+        function changeGoogleColor(inputID) {
+            var output = "";
+            var googleColorArray = ["4285f4", "db4437", "f4b400", "4285f4", "0f9d58", "db4437"];
+            //Stolen from Derek's answer ;)
+            var letters = $('#' + inputID).text().split('');
+            console.log(letters);
+            var countColor = 0;
+            letters.forEach(function(letter) {
+                //alert(letter);
+                //var color = "#"+(Math.random()*16777215|0).toString(16);
+                var color = "#" + googleColorArray[countColor];
+                output += '<span style="color: ' + color + ';">' + letter + '</span>';
+                if (countColor == 5) {
+                    countColor = 0;
+                }
+                countColor++;
+                //$('span.loadingMessage').html(output);
+                //$('#'+inputID).text()  = output;
+                document.getElementById(inputID).innerHTML = output;
+            });
+        };
+
+        $(document).ready(function() {
+            //change btn font color
+            changeGoogleColor('google_search');
+            changeGoogleColor('google_tran');
+
+
+            $('.copybtnspan').click(function() {
+                copyToClipboard(document.getElementById('text1'));
+                $('#copyBtn').removeClass('animate__animated animate__bounceIn');
+
+                // setTimeout($('#copyBtn').removeClass('animate__animated animate__bounceIn'), 3000);
+                setTimeout(function() {
+                    $('#copyBtn').addClass('animate__animated animate__bounceIn');
+                }, 10);
+            });
+
+        });
+
+
+        function copyToClipboard(elem) {
+            // create hidden text element, if it doesn't already exist
+            var targetId = "_hiddenCopyText_";
+            var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+            var origSelectionStart, origSelectionEnd;
+            if (isInput) {
+                // can just use the original source element for the selection and copy
+                target = elem;
+                origSelectionStart = elem.selectionStart;
+                origSelectionEnd = elem.selectionEnd;
+            } else {
+                // must use a temporary form element for the selection and copy
+                target = document.getElementById(targetId);
+                if (!target) {
+                    var target = document.createElement("textarea");
+                    target.style.position = "absolute";
+                    target.style.left = "-9999px";
+                    target.style.top = "0";
+                    target.id = targetId;
+                    document.body.appendChild(target);
+                }
+                target.textContent = elem.textContent;
+            }
+            // select the content
+            var currentFocus = document.activeElement;
+            target.focus();
+            target.setSelectionRange(0, target.value.length);
+
+            // copy the selection
+            var succeed;
+            try {
+                succeed = document.execCommand("copy");
+            } catch (e) {
+                succeed = false;
+            }
+            // restore original focus
+            if (currentFocus && typeof currentFocus.focus === "function") {
+                currentFocus.focus();
+            }
+
+            if (isInput) {
+                // restore prior selection
+                elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+            } else {
+                // clear temporary content
+                target.textContent = "";
+            }
+            return succeed;
+        }
+
+        function GoogleSearch() {
+            window.open('https://www.google.com/search?q=' + $('#text1').val(), '_blank');
+        }
+
+        function GoogleTranslate() {
+            window.open(
+                'https://translate.google.com.hk/?hl=zh-TW&authuser=0#view=home&op=translate&sl=auto&tl=en&text=' +
+                $('#text1').val(), '_blank');
+        }
+
+        function yahooDic() {
+            window.open('https://hk.dictionary.search.yahoo.com/search?p=' + $('#text1').val(), '_blank');
+        }
+
+        function CangjieBtn() {
+            const form = document.createElement('form');
+            form.method = "post";
+            form.action = "http://input.foruto.com/cjdict/Search_1.php";
+            form.setAttribute("target", "_blank");
+            form.setAttribute("accept", "BIG5");
+            form.setAttribute("accept-charset", "BIG5");
+
+            const inputField1 = document.createElement('input');
+            inputField1.type = 'hidden';
+            inputField1.name = "Step";
+            inputField1.value = "DoSearch";
+            form.appendChild(inputField1);
+
+            //get first input string
+            const inputField2 = document.createElement('input');
+            inputField2.type = 'hidden';
+            inputField2.name = "Hanzi";
+            inputField2.value = (document.getElementById('text1').value).charAt(0);
+            form.appendChild(inputField2);
+
+
+            document.body.appendChild(form);
+            form.submit();
+
+        }
+    </script>
+    <style>
+        * {
+            font-size: 20px;
+        }
+        
+        .yahoobtn {
+            background-color: #532dfc;
+            color: #FFF
+        }
+        
+        .btn-toolbar {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+    <div class="container">
+
+        <!-- Import Q9 Library -->
+        <script src="js/jq.js"></script>
+        <script src="js/jqui.js"></script>
+        <script language="Javascript1.2" src="js/q9enable.js"></script>
+        <!-- End Import Q9 Library -->
+
+
+        <form name="myform2">
+            <div class="form-group">
+
+                <br /><br />
+
+                <div class="btn-toolbar d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+
+                    <input class="btn btn-primary mr-2 mb-2" type="button" value="筆劃" onclick="OpenQ9WWW('tc', 'q9stroke', '', 'myform2.text1');">
+                    <input class="btn btn-success mr-2 mb-2" type="button" value="字型" onclick="OpenQ9WWW('tc', 'q9', '', 'myform2.text1');">
+
+                    <input class="btn btn-warning mr-2 mb-2" type="button" value="Copy" onclick=" copyToClipboard(document.getElementById('text1'));">
+                    <input class="btn btn-danger mr-2 mb-2" type="button" value="Clear" onclick="document.getElementById('text1').value = '';">
+
+                </div>
+                <br />
+
+                <div class="">
+
+
+                    <div class="input-group mb-3">
+                        <input id="text1" class="form-control col-xs-4" name="Hanzi" onfocus="SetQ9WWW('', 'myform2.text1');">
+                        <div class="input-group-append">
+                            <span class="input-group-text"> <span class="copybtnspan"> <i id="copyBtn"
+                                        class="fa fa-clone " aria-hidden="true"></i></span></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </form>
+
+        <br />
+
+        <div class="d-flex justify-content-center" style="margin-top: 30px;">
+
+        </div>
+
+        <div class="btn-toolbar d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+            <button id="google_search" type="button" class="btn btn-default  mr-2 mb-2" onclick="GoogleSearch();">谷歌搜尋</button>
+            <button id="google_tran" type="button" class="btn btn-default  mr-2 mb-2" onclick="GoogleTranslate();">谷歌翻譯</button>
+            <button id="yahoo_dic" type="button" class="btn btn-default yahoobtn  mr-2 mb-2" onclick="yahooDic();">雅虎字典</button>
+            <button id="CangjieBtn" type="button" class="btn btn-default  mr-2 mb-2" onclick="CangjieBtn();">倉頡字典
+            </button>
+
+        </div>
+
+
+        <!-- Q9IME -->
+        <div id="q9frame" style="float:left;width:100px;"></div>
+        <!-- Q9IME -->
+        <script type="text/javascript" src="js/corner.js"></script>
+
+
+    </div>
+
+
+</body>
+
+</html>

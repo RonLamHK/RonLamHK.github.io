@@ -1,0 +1,426 @@
+<html>
+
+<head>
+    <title>Q9 Input Method</title>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;" charset="utf-8">
+    <SCRIPT language="JavaScript1.2">
+        <!--
+        var theParam = document.location.hash;
+        var charset = "";
+        var q9datafile = "";
+        var serverURL = "";
+        var targetControl = "";
+        //var serverURL = "http://www.q9tech.com/q9/q9web/1.3/";
+        var bName = navigator.appName;
+        var bVer = parseInt(navigator.appVersion);
+        var NS4 = (bName == "Netscape" && bVer >= 4);
+        var IE4 = (bName == "Microsoft Internet Explorer" && bVer >= 4);
+        var OPR = (bName == "Opera" && bVer >= 9);
+        var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+
+        if (OPR) {
+            NS4 = OPR;
+        }
+
+        document.onkeydown = document.onkeypress = function(evt) {
+            if (typeof evt == 'undefined') {
+                evt = window.event;
+            }
+            if (evt) {
+                var keyCode = evt.keyCode ? evt.keyCode : evt.charCode;
+                if (keyCode == evt.DOM_VK_BACK_SPACE || keyCode == evt.DOM_VK_DELETE && keyCode != 46) {
+                    if (IE4 || is_chrome) dobackspace();
+                    return false;
+                } else if (keyCode == 8) {
+                    if (IE4 || is_chrome) dobackspace();
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }
+
+
+        //theParam = document.location.search;
+        theParam = document.location.hash;
+        kTargetName = "charset";
+        theTargetPos = theParam.indexOf(kTargetName, 0);
+        if (theTargetPos >= 0) {
+            theTermPos = theParam.indexOf("&", theTargetPos);
+            if (theTermPos == -1) theTermPos = theParam.length;
+            charset = theParam.substring(theTargetPos + kTargetName.length + 1, theTermPos);
+        }
+
+        kTargetName = "targetControl";
+        theTargetPos = theParam.indexOf(kTargetName, 0);
+        if (theTargetPos >= 0) {
+            theTermPos = theParam.indexOf("&", theTargetPos);
+            if (theTermPos == -1) theTermPos = theParam.length;
+            targetControl = theParam.substring(theTargetPos + kTargetName.length + 1, theTermPos);
+        }
+
+        if (charset == "sc")
+            q9datafile = "q9datgb";
+        else {
+            charset = "tc";
+            if (NS4) {
+                q9datafile = "q9datb5only";
+            } else {
+                q9datafile = "q9datb5";
+            }
+        }
+
+        q9datafile = q9datafile + '.htm';
+
+        function restore() {
+            flag = 0;
+            lzy = 1;
+            rawText = '';
+            sbflag = 1;
+            lflag = 0;
+        }
+
+        function setpic() {
+            for (i = 1; i < 10; i++)
+                if (NS4) {
+                    if (bVer >= 5) {
+                        eval('document.q9charform.zx_' + i + '.src="../grx/zx_' + i + '.gif"');
+                    } else {
+                        eval('document.q9char.document.q9charform.zx_' + i + '.src="../grx/zx_' + i + '.gif"');
+                    }
+                } else
+                    eval('document.all.q9charform.zx_' + i + '.src="../grx/zx_' + i + '.gif"');
+
+            if (NS4) {
+                if (bVer >= 5)
+                    eval('document.q9charform.q9_s3Pic.src=q9_xz.src');
+                else
+                    eval('document.q9char.document.q9charform.q9_s3Pic.src=q9_xz.src');
+            } else
+                eval('document.all.q9charform.q9_s3Pic.src=q9_xz.src');
+        }
+
+        function onclickfixit(i) {
+            var tnum = i + 48;
+            var check = eval('document.all.c' + i + '.innerText');
+            if ((check == ' ') || (check == 'xx') || (check == '') || (check == '$') || (check == '(') || (check ==
+                    '　') || (check == ',') || (check == '8') || (check == '８')) keyup(tnum);
+            else {
+                flag = 1;
+                setpic();
+                DoFixText(1, check);
+                dofindlianxiang(check);
+                restore();
+                false;
+            }
+        }
+
+        function nonclickfixit(i) {
+            var tnum = i + 48;
+            if (bVer >= 5) {
+                var check = eval('document.q9charform.c' + i + '.value');
+                var ocheck = eval('document.q9charform.c' + i);
+            } else {
+                var check = eval('document.q9char.document.q9charform.c' + i + '.value');
+                var ocheck = eval('document.q9char.document.q9charform.c' + i);
+            }
+            if ((check == ' ') || (check == 'xx') || (check == '') || (check == '$') || (check == '(') || (check ==
+                    '　') || (check == ',')) keyup(tnum);
+            else {
+                flag = 1;
+                setpic();
+                DoFixText(1, check);
+                dofindlianxiang(check);
+                restore();
+                ocheck.blur();
+                false;
+            }
+        }
+
+        //
+        -->
+    </SCRIPT>
+
+    <SCRIPT language="JavaScript1.2" SRC="../q9core.js"></SCRIPT>
+    <SCRIPT language="JavaScript1.2" SRC="q9datb5only.js"></SCRIPT>
+    <STYLE>
+        body {
+            background: #FFFFFF;
+        }
+        
+        #canvas {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            z-index: 1000;
+            width: 219px;
+            height: 290px;
+            overflow: hidden;
+        }
+        
+        table {
+            border-style: none;
+        }
+        
+        tr {
+            border-style: none;
+        }
+        
+        td {
+            border-style: none;
+        }
+    </STYLE>
+    <SCRIPT>
+        if (NS4) {
+            document.write("<STYLE>input{border-style: none; font-size: x-large; font-weight:bold;}</STYLE>");
+        }
+        if (OPR) {
+            document.write("<STYLE>input{border-style: none; font-size: large;}</STYLE>");
+        }
+    </SCRIPT>
+</head>
+
+<body onBlur="timerID=setTimeout('FocusWindow()', 100);" onLoad="InitQ9();">
+    <div id="canvas">
+        <map name="Map">
+            <area shape="rect" coords="11,6,53,104" onClick="keyup(45);return false">
+            <area shape="rect" coords="11,108,53,206" onClick="keyup(43);return false">
+        </map>
+        <MAP NAME="q9map">
+            <AREA COORDS="8,6,55,53" SHAPE="rect" onclick="keyup(55);return false;">
+            <AREA COORDS="58,6,106,53" SHAPE="rect" onclick="keyup(56);return false;">
+            <AREA COORDS="108,6,157,53" SHAPE="rect" onclick="keyup(57);return false;">
+            <AREA COORDS="8,56,55,103" SHAPE="rect" onclick="keyup(52);return false;">
+            <AREA COORDS="58,56,106,103" SHAPE="rect" onclick="keyup(53);return false;">
+            <AREA COORDS="108,56,157,103" SHAPE="rect" onclick="keyup(54);return false;">
+            <AREA COORDS="8,106,55,153" SHAPE="rect" onclick="keyup(49);return false;">
+            <AREA COORDS="58,106,106,153" SHAPE="rect" onclick="keyup(50);return false;">
+            <AREA COORDS="108,106,157,153" SHAPE="rect" onclick="keyup(51);return false;">
+            <AREA COORDS="8,164,106,202" SHAPE="rect" onclick="keyup(48);return false;">
+            <AREA COORDS="108,164,157,202" SHAPE="rect" onclick="keyup(46);return false;">
+        </MAP>
+
+        <MAP NAME="q9map2">
+            <AREA COORDS="1,0,101,50" SHAPE="rect" onclick="keyup(48);return false;">
+            <AREA COORDS="103,0,152,50" SHAPE="rect" onclick="keyup(46); return false;">
+        </MAP>
+
+        <MAP NAME="q9map3">
+            <AREA COORDS="5,8,34,43" SHAPE="rect" HREF="" target="_blank">
+            <AREA COORDS="76,8,105,32" SHAPE="rect" onclick="dobackspace(); return false;">
+            <AREA COORDS="108,8,137,32" SHAPE="rect" onclick="keyup(13);return false">
+            <area coords="139,8,169,32" shape="rect" onClick="keyup(32);return false">
+            <AREA COORDS="171,8,212,32" SHAPE="rect" HREF="" target="_blank">
+        </MAP>
+
+        <DIV id="q9temp" LANG="tc" STYLE="POSITION:absolute; Z-INDEX:9; TOP :2px; LEFT:2px; VISIBILITY:visible; width: 144px; height: 87px;">
+            <table width="76" border="0" cellpadding="0" cellspacing="0" height="157">
+                <tr>
+                    <td colspan="3" height="0"><img src="../grx/zx.png" width="217" height="40" border="0" usemap="#q9map3"></td>
+                </tr>
+                <tr>
+                    <td width="0"><img src="../grx/left.png" width="9" height="214" border="0"></td>
+                    <td width="164" height="0"><img src="../grx/fill.gif"></td>
+                    <td width="0" height="165"><img src="../grx/right.png" width="44" height="214" border="0" usemap="#Map"></td>
+                </tr>
+                <tr>
+                    <td style="background-image: url(../grx/down.png); background-repeat: no-repeat;" colspan="3" width="217" height="36">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="8" height="20"></td>
+                                <td valign=center align=left style="padding-left:80px">
+                                    <input id="ucstc" type="checkbox" name="ucstc" onclick=" setuctsc();">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </DIV>
+
+
+        <DIV id="q9char" LANG="tc" STYLE="POSITION:absolute; Z-INDEX:10;TOP :42; LEFT:11; VISIBILITY:hidden;">
+            <form name="q9charform">
+                <table width=164 height=160 cellspacing=0 cellpadding=0 border=5 style="border-style:none; background: url(../grx/stroke_s4.png) no-repeat " name="q9table">
+                    <!--bordercolor="#0075b5"-->
+                    <SCRIPT language="JavaScript1.2">
+                        <!--
+                        var NS4Edit = 0;
+                        var NS4Edit2 = 0;
+                        charwidth = "　".length;
+
+                        for (i = 0; i < 9; i++) {
+                            NS4Edit2 = i % 3;
+                            if (i == 0 && NS4) {
+                                document.write(
+                                    '<tr valign=center align=top height=3><td height="4"></td><td></td><td></td><td></tr>'
+                                );
+                            }
+                            if (i == 0 && !NS4) {
+                                document.write(
+                                    '<tr valign=center align=top height=15 border=0><td></td><td></td><td></td><td></td></tr>'
+                                );
+                            }
+
+                            if ((i % 3) == 0) {
+                                NS4Edit += 2;
+                                if (NS4) {
+                                    document.write('<tr valign=center align=top><td width=8></td>');
+                                } else {
+                                    document.write('<tr valign=top align=left><td width=8></td>');
+                                }
+                            }
+
+                            if (NS4 && bVer < 5) {
+                                document.write(
+                                    '<td height=48 width=48 style="border-style:none"><font size=4 color="#000000"><b>'
+                                );
+                            } else if (NS4 && bVer >= 5) {
+                                document.write(
+                                    '<td height=52 width=47 style="border-style:none"><font size=4 color="#000000"><b>'
+                                );
+                            } else if (OPR) {
+                                document.write(
+                                    '<td height=47 width=47 style="border-style:none"><font size=3 color="#000000"><b>'
+                                );
+                            } else {
+                                document.write('<td height=47 width=47 border=0><font size=5><b>');
+                            }
+
+
+                            if (is_chrome) {
+                                var tempa = (2 - Math.floor(i / 3)) * 3 + (i % 3) + 1;
+                                document.write('<input type=text size=1 name=c' + ((2 - Math.floor(i / 3)) * 3 + (i %
+                                        3) + 1) + ' value=xx onfocus="nonclickfixit(' + tempa +
+                                    ')" style="width: 24px; height:30px; position: relative; top:' + ((10 - i) / 3 -
+                                        NS4Edit + 3) + '; left:' + (2 - NS4Edit2) + '; z-index:99"/>');
+                            } else if (OPR) {
+                                var tempa = (2 - Math.floor(i / 3)) * 3 + (i % 3) + 1;
+                                document.write('<input type=text size=1 name=c' + ((2 - Math.floor(i / 3)) * 3 + (i %
+                                        3) + 1) + ' value=xx onfocus="nonclickfixit(' + tempa +
+                                    ')" style="width: 25px; height:25px; position: relative; top:' + (2 - NS4Edit) +
+                                    '; left:' + (0 - NS4Edit2) + '; z-index:99"/>');
+                            } else if (NS4) {
+                                var tempa = (2 - Math.floor(i / 3)) * 3 + (i % 3) + 1;
+                                document.write('<input type=text size=1 name=c' + ((2 - Math.floor(i / 3)) * 3 + (i %
+                                        3) + 1) + ' value=xx onfocus="nonclickfixit(' + tempa +
+                                    ')" style="width: 25px; height:25px; position: relative; top:' + (2 - NS4Edit) +
+                                    '; left:' + (0 - NS4Edit2) + '; z-index:99"/>');
+                            } else {
+                                var tempa = (2 - Math.floor(i / 3)) * 3 + (i % 3) + 1;
+                                document.write('<label id=c' + ((2 - Math.floor(i / 3)) * 3 + (i % 3) + 1) +
+                                    '  onclick="onclickfixit(' + tempa +
+                                    ')" style="z-index:99; position: relative; top:-3">xx</label>');
+                            }
+                            var tnum = (2 - Math.floor(i / 3)) * 3 + (i % 3) + 1 + 48;
+                            if (NS4)
+                                document.write('<br><a onclick="keyup(' + tnum + ')"><img src="../grx/zx_' + (i + 1) +
+                                    '.gif" width="20" height="20" border="0" align="right" name="zx_' + (i + 1) +
+                                    '" style="position: relative; left:' + (-9 - NS4Edit2) + '; top:' + (-2 - NS4Edit) +
+                                    '; z-index:98"></a>');
+                            else
+                                document.write('<br><img src="../grx/zx_' + (i + 1) +
+                                    '.gif" width="20" height="20" border="0" style="position: relative; left:20; top:-10; z-index:98;" name="zx_' +
+                                    (i + 1) + '" onclick="keyup(' + tnum + ')">');
+
+                            document.write('</b></font></td>');
+
+                            if (((i + 1) % 3) == 0)
+                                document.write('</tr>');
+                        }
+
+                        //
+                        -->
+                    </SCRIPT>
+
+                </table>
+                <SCRIPT language="JavaScript1.2">
+                    document.write(
+                        '<img src="../grx/q9_s3.png" name="q9_s3Pic" border=0 usemap="#q9map2" style="margin-top: 0px">'
+                    );
+                </SCRIPT>
+            </form>
+
+            <form name="q9form">
+
+                <SCRIPT language="JavaScript1.2">
+                    <!--
+                    document.write('<input type=hidden name=charset value="' + charset + '">');
+                    document.write('<input type=hidden name="ime" value="q9">');
+                    document.write('<input type=hidden name="targetcontrol" value="' + targetControl + '">');
+                    document.write('<input type=hidden name="serverurl" value="' + serverURL + '">');
+                    //
+                    -->
+                </SCRIPT>
+            </form>
+
+        </DIV>
+
+        <DIV id="q9pic" LANG="tc" STYLE="POSITION:absolute; Z-INDEX:11; TOP :2px; LEFT:2px; VISIBILITY:hidden; width: 144px; height: 87px;">
+            <table width="76" border="0" cellpadding="0" cellspacing="0" height="157">
+                <tr>
+                    <td colspan="3" height="0"><img src="../grx/zx.png" width="217" height="40" border="0" usemap="#q9map3"></td>
+                </tr>
+                <tr>
+                    <td width="0"><img src="../grx/left.png" width="9" height="214" border="0"></td>
+                    <td width="0" height="0"><img name="q9stage" width=164 height=214 border=0 usemap="#q9map"></td>
+                    <td width="0" height="165"><img src="../grx/right.png" width="44" height="214" border="0" usemap="#Map"></td>
+                </tr>
+                <tr>
+                    <td style="background-image: url(../grx/down.png); background-repeat: no-repeat;" colspan="3" width="217" height="36">
+
+                        <table border=0 cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="8" height="20"></td>
+                                <td valign=center align=left style="padding-left:80px">
+                                    <input id="ucstc" type="checkbox" name="ucstc" onclick=" setuctsc();">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </DIV>
+
+        <DIV id="q9load" LANG="tc" STYLE="POSITION:absolute; Z-INDEX:9;TOP :10; LEFT:10; VISIBILITY:visible;">
+            <P>Loading...</P>
+        </DIV>
+
+        <DIV id="q9event" STYLE="POSITION:absolute; Z-INDEX:20;TOP :10; LEFT:10; VISIBILITY:hidden;">
+            <form name="eventform">
+                <input name="eventcontrol" onKeyPress="if(!NS4 ||(NS4 && bVer<5)) DoKeyUp(event);return false;" onBlur="this.focus();">
+            </form>
+        </DIV>
+
+        <DIV id="q9dataLayer" LANG="tc" STYLE="POSITION:absolute; Z-INDEX:21;TOP :10; LEFT:10; VISIBILITY:hidden;">
+
+            <SCRIPT language="JavaScript1.2">
+                <!--
+                if (NS4 && bVer < 5) {
+                    document.write('<LAYER NAME="q9dataFrame" SRC="' + serverURL + q9datafile +
+                        '" LEFT=50 TOP=50 WIDTH=300 HEIGHT=200 CLIP="0,0,300,200"></LAYER>');
+                } else if (!NS4) {
+                    document.write('<IFRAME SRC="' + serverURL + q9datafile +
+                        '" NAME="q9dataFrame" SCROLLING="No" WIDTH="300" HEIGHT="200" MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER="No"></IFRAME>'
+                    );
+                }
+                //
+                -->
+            </SCRIPT>
+        </DIV>
+
+    </div>
+</body>
+<SCRIPT language="JavaScript1.2">
+    <!--
+    document.onkeypress = DoKeyUp;
+    if (NS4 && bVer < 5) {
+        document.q9pic.document.q9stage.onkeypress = DoKeyUp;
+    }
+    //
+    -->
+</SCRIPT>
+
+</html>

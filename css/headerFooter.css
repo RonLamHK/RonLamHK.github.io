@@ -1,0 +1,15 @@
+#top_menu{
+	font-size:12px;
+	font-family:"Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+	color:#999999;
+
+}
+#top_menu a:link{color:#0451DB;text-decoration:none}
+#top_menu a:visited{color:#0451DB;text-decoration:none}
+#top_menu a:hover{color:#0451DB;text-decoration:underline}
+
+#copyRight{
+	font-size:12px;
+	font-family:"Microsoft JhengHei", "Heiti TC", "PMingLiU", Arial;
+	color:#555555;
+}
